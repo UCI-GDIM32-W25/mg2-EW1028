@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class MoveLeft : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
+    [SerializeField] private float _speed = 3f;
+    [SerializeField] private float destoryX = -10f;
     void Update()
     {
-        
+        transform.Translate(Vector2.left * _speed * Time.deltaTime);
+
+        if (transform.position.x < destoryX)
+        {
+            Destroy(gameObject);
+        }
     }
 }
